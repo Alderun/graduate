@@ -5,7 +5,7 @@ export const messages = {
         main: 'Main',
         services: 'Services',
         reviews: 'Reviews',
-        contacts: 'Contact us',
+        contacts: 'Contacts',
         news: 'News',
         profile: 'Profile'
 

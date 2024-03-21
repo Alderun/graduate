@@ -1,14 +1,28 @@
-import * as React from "react";
 import './css/Header.css';
-import logo from './photo/Logo.jpg';
-import { IntlProvider, FormattedMessage } from 'react-intl'
+import logo from './photo/Logo1.png';
+import { FormattedMessage } from 'react-intl'
 import { LOCALES } from './i18n/locales'
-import { messages } from './i18n/messages'
 
-function Header() {
-    const locale = LOCALES.RUSSIAN;
+const syncPointer = ({ x: pointerX, y: pointerY }) => {
+    const x = pointerX.toFixed(2)
+    const y = pointerY.toFixed(2)
+    const xp = (pointerX / window.innerWidth).toFixed(2)
+    const yp = (pointerY / window.innerHeight).toFixed(2)
+    document.documentElement.style.setProperty('--x', x)
+    document.documentElement.style.setProperty('--xp', xp)
+    document.documentElement.style.setProperty('--y', y)
+    document.documentElement.style.setProperty('--yp', yp)
+}
+document.body.addEventListener('pointermove', syncPointer)
+
+const languages = [
+    { name: 'English', code: LOCALES.ENGLISH },
+    { name: 'Русский', code: LOCALES.RUSSIAN }
+]
+
+function Header({ currentLocale, handleChange }) {
     return (
-        <IntlProvider messages={messages[locale]} locale={locale} defaultLocale={LOCALES.RUSSIAN}>
+        <header>
             <div className="header">
                 <img
                     loading="lazy"
@@ -16,18 +30,39 @@ function Header() {
                     className="logo"
                 />
                 <div className="nav">
-                    <div className="text"><FormattedMessage id="main" /></div>
-                    <div className="text"><FormattedMessage id="services" /></div>
-                    <div className="text"><FormattedMessage id="reviews" /></div>
-                    <div className="text"><FormattedMessage id="contacts" /></div>
-                    <div className="text"><p><FormattedMessage id="news" /></p></div>
-                    <div className="text"><div>Рус</div>/<div>Eng</div></div>
+                    <button className="button">
+                        <span><FormattedMessage id="main" /></span>
+                    </button>
+                    <button className="button">
+                        <span><FormattedMessage id="services" /></span>
+                    </button>
+                    <button className="button">
+                        <span><FormattedMessage id="reviews" /></span>
+                    </button>
+                    <button className="button">
+                        <span><FormattedMessage id="contacts" /></span>
+                    </button>
+                    <button className="button">
+                        <span><FormattedMessage id="news" /></span>
+                    </button>
                 </div>
-                <button className="profile_button">
-                    <FormattedMessage id="profile" />
+                <div className="button switcher">
+                    <span>
+                        <select onChange={handleChange} value={currentLocale}>
+                            {languages.map(({ name, code }) => (
+                                <option key={code} value={code}>
+                                    {name}
+                                </option>
+                            ))}
+                        </select>
+                    </span>
+
+                </div>
+                <button className="button profile">
+                    <span><FormattedMessage id="profile" /></span>
                 </button>
             </div>
-        </IntlProvider>
+        </header>
     );
 }
 
