@@ -1,0 +1,26 @@
+.logo {
+    width: 50px;
+}
+
+.header {
+    display: flex;
+    background-color: RGB(22, 40, 49);
+    width: auto;
+}
+
+.nav {
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: flex-start;
+}
+
+.profile_button {
+    width: 80px;
+}
+
+.text {
+    color: white;
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
