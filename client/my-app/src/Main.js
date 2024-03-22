@@ -22,6 +22,7 @@ function Main() {
     return (
         <IntlProvider messages={messages[currentLocale]} locale={currentLocale} defaultLocale={LOCALES.RUSSIAN}>
             <Header currentLocale={currentLocale} handleChange={handleChange} />
+            <Footer />
         </IntlProvider>
     );
 }

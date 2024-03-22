@@ -7,7 +7,10 @@ export const messages = {
         reviews: 'Reviews',
         contacts: 'Contacts',
         news: 'News',
-        profile: 'Profile'
+        profile: 'Profile',
+        companyName: 'Health center "Serene"',
+        noDaysOff: 'Seven-day',
+        addressName: 'Minsk, Storozhevskaya str., 6',
 
     },
     [LOCALES.RUSSIAN]: {
@@ -16,6 +19,9 @@ export const messages = {
         reviews: 'Отзывы',
         contacts: 'Контакты',
         news: 'Новости',
-        profile: 'Профиль'
+        profile: 'Профиль',
+        companyName: 'Оздоровительный центр "Serene"',
+        noDaysOff: 'Без выходных',
+        addressName: 'г. Минск, ул. Сторожовская, 6',
     }
 }

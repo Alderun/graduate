@@ -1,7 +1,8 @@
-import './css/Header.css';
-import logo from './photo/Logo1.png';
+import './css/Header.css'
+import logo from './photo/Logo1.png'
 import { FormattedMessage } from 'react-intl'
 import { LOCALES } from './i18n/locales'
+import { Link } from 'react-router-dom';
 
 const syncPointer = ({ x: pointerX, y: pointerY }) => {
     const x = pointerX.toFixed(2)
@@ -24,15 +25,15 @@ function Header({ currentLocale, handleChange }) {
     return (
         <header>
             <div className="header">
-                <img
-                    loading="lazy"
-                    src={logo}
-                    className="logo"
-                />
+                <Link to='/main'>
+                    <img loading="lazy" src={logo} className="logo" alt='logo' />
+                </Link>
                 <div className="nav">
-                    <button className="button">
-                        <span><FormattedMessage id="main" /></span>
-                    </button>
+                    <Link to='/main'>
+                        <button className="button">
+                            <span><FormattedMessage id="main" /></span>
+                        </button>
+                    </Link>
                     <button className="button">
                         <span><FormattedMessage id="services" /></span>
                     </button>
