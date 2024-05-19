@@ -1,0 +1,8 @@
+{
+    "dataworkspace.excludedProjects": [
+        "tables/tables.sqlproj",
+        "files/files.sqlproj",
+        "spp_lab2/spp_lab2.sqlproj",
+        "spp_lab3/spp_lab3.sqlproj"
+    ]
+}
