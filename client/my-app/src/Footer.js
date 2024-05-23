@@ -1,6 +1,7 @@
-import './css/Footer.css'
+import React, { useEffect } from 'react';
 import logo from './photo/Logo1.png'
 import { FormattedMessage } from 'react-intl'
+import './css/Footer.css'
 
 function Footer() {
     return (

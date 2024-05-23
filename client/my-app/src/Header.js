@@ -1,8 +1,9 @@
-import './css/Header.css'
+import React, { useEffect } from 'react';
 import logo from './photo/Logo1.png'
 import { FormattedMessage } from 'react-intl'
 import { LOCALES } from './i18n/locales'
 import { Link } from 'react-router-dom';
+import './css/Header.css'
 
 const syncPointer = ({ x: pointerX, y: pointerY }) => {
     const x = pointerX.toFixed(2)
@@ -34,18 +35,26 @@ function Header({ currentLocale, handleChange }) {
                             <span><FormattedMessage id="main" /></span>
                         </button>
                     </Link>
-                    <button className="button">
-                        <span><FormattedMessage id="services" /></span>
-                    </button>
-                    <button className="button">
-                        <span><FormattedMessage id="reviews" /></span>
-                    </button>
-                    <button className="button">
-                        <span><FormattedMessage id="contacts" /></span>
-                    </button>
-                    <button className="button">
-                        <span><FormattedMessage id="news" /></span>
-                    </button>
+                    <Link to='/service'>
+                        <button className="button">
+                            <span><FormattedMessage id="services" /></span>
+                        </button>
+                    </Link>
+                    <Link to='/review'>
+                        <button className="button">
+                            <span><FormattedMessage id="reviews" /></span>
+                        </button>
+                    </Link>
+                    <Link to='/contacts'>
+                        <button className="button">
+                            <span><FormattedMessage id="contacts" /></span>
+                        </button>
+                    </Link>
+                    <Link to='/news'>
+                        <button className="button">
+                            <span><FormattedMessage id="news" /></span>
+                        </button>
+                    </Link>
                 </div>
                 <div className="button switcher">
                     <span>
@@ -57,11 +66,13 @@ function Header({ currentLocale, handleChange }) {
                             ))}
                         </select>
                     </span>
-
                 </div>
-                <button className="button profile">
-                    <span><FormattedMessage id="profile" /></span>
-                </button>
+                <Link to='/sign'>
+                    <button className="button profile">
+                        <span><FormattedMessage id="profile" /></span>
+                    </button>
+                </Link>
+
             </div>
         </header>
     );
